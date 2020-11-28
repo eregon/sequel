@@ -583,7 +583,7 @@ describe "Blockless Ruby Filters" do
     endless = eval('(...1)')
     @d.l{x =~ endless}.must_equal '(x < 1)'
     @d.l(:x => endless).must_equal '(x < 1)'
-  end if RUBY_VERSION >= '2.7'
+  end if RUBY_VERSION >= '2.7' and RUBY_ENGINE != 'truffleruby'
 
   it "should handle startless, endless ranges" do
     endless = eval('nil..nil')
