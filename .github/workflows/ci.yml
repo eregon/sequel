@@ -27,6 +27,7 @@ jobs:
     name: ${{ matrix.ruby }}
     env:
       BUNDLE_GEMFILE: .ci.gemfile
+    continue-on-error: ${{ startsWith(matrix.ruby, 'truffleruby') }}
     steps:
     - uses: actions/checkout@v2
     - run: sudo apt-get -yqq install libpq-dev mysql-client libmysqlclient-dev
@@ -40,4 +41,3 @@ jobs:
       env:
         DEFAULT_DATABASE: 1
         MYSQL_ROOT_PASSWORD: 1
-      continue-on-error: ${{ startsWith(matrix.ruby, 'truffleruby') }}
