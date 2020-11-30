@@ -40,3 +40,4 @@ jobs:
       env:
         DEFAULT_DATABASE: 1
         MYSQL_ROOT_PASSWORD: 1
+      continue-on-error: ${{ startsWith(matrix.ruby, 'truffleruby') }}
